@@ -4,9 +4,29 @@ namespace GestaoBancaria
 {
     class Program
     {
-        static void Main(string[] args)
+        static ContaCorrente conta;
+
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            CriarConta();
+
+            Console.ReadKey();
+        }
+
+        private static void CriarConta()
+        {
+            string nome;
+
+            do
+            {
+                Console.WriteLine("Digite seu nome para criar a conta: ");
+                nome = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(nome))
+                {
+                    var cliente = new Cliente(nome);
+                    conta = new ContaCorrente(cliente);
+                }                
+            } while (string.IsNullOrWhiteSpace(nome));
         }
     }
 
@@ -43,6 +63,11 @@ namespace GestaoBancaria
 
     class Cliente
     {
-        public string Nome { get; set; }
+        public string Nome { get; }
+
+        public Cliente(string nome)
+        {
+            Nome = nome;
+        }
     }
 }
