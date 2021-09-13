@@ -10,7 +10,49 @@ namespace GestaoBancaria
         {
             CriarConta();
 
+            int opcao = 0;
+
+            do
+            {
+                Console.WriteLine("Selecione a opção desejada:");
+                Console.WriteLine("1 - Depositar");
+                Console.WriteLine("2 - Sacar");
+                Console.WriteLine("3 - Consultar saldo");
+                Console.WriteLine("4 - Sair");
+                var opcaoSelecionada = int.Parse(Console.ReadLine());
+
+                switch (opcaoSelecionada)
+                {
+                    case 1:
+                        Depositar();
+                        break;
+                    case 2:
+                        Sacar();
+                        break;
+                    case 3:
+                        ConsultarSaldo();
+                        break;
+                    default:
+                        return;
+                }
+            } while (opcao != 4);
+
             Console.ReadKey();
+        }
+
+        private static void ConsultarSaldo()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Sacar()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Depositar()
+        {
+            throw new NotImplementedException();
         }
 
         private static void CriarConta()
