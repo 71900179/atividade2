@@ -59,7 +59,7 @@ namespace GestaoBancaria
             while (!permiteSaque)
             {
                 Console.WriteLine();
-                Console.WriteLine($"Valor maior que permitido. Digite um valor menor que {valor}:");
+                Console.WriteLine("Valor maior que permitido. Digite outro valor para saque:");
                 valor = double.Parse(Console.ReadLine());
 
                 permiteSaque = conta.Sacar(valor);
