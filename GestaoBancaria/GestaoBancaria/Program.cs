@@ -52,7 +52,9 @@ namespace GestaoBancaria
 
         private static void Depositar()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Digite o valor para depósito:");
+            var valor = double.Parse(Console.ReadLine());
+            conta.Depositar(valor);
         }
 
         private static void CriarConta()
