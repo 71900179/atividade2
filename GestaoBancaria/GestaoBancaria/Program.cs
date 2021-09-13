@@ -14,6 +14,7 @@ namespace GestaoBancaria
 
             do
             {
+                Console.WriteLine();
                 Console.WriteLine("Selecione a opção desejada:");
                 Console.WriteLine("1 - Depositar");
                 Console.WriteLine("2 - Sacar");
@@ -42,7 +43,9 @@ namespace GestaoBancaria
 
         private static void ConsultarSaldo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine();
+            var saldo = conta.ConsultarSaldo();
+            Console.WriteLine($"Saldo disponível {saldo}");
         }
 
         private static void Sacar()
@@ -52,6 +55,7 @@ namespace GestaoBancaria
 
         private static void Depositar()
         {
+            Console.WriteLine();
             Console.WriteLine("Digite o valor para depósito:");
             var valor = double.Parse(Console.ReadLine());
             conta.Depositar(valor);
