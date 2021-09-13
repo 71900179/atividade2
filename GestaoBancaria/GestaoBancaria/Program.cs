@@ -50,7 +50,20 @@ namespace GestaoBancaria
 
         private static void Sacar()
         {
-            throw new NotImplementedException();
+            Console.WriteLine();
+            Console.WriteLine("Digite o valor para saque:");
+            var valor = double.Parse(Console.ReadLine());
+
+            var permiteSaque = conta.Sacar(valor);
+
+            while (!permiteSaque)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Valor maior que permitido. Digite um valor menor que {valor}:");
+                valor = double.Parse(Console.ReadLine());
+
+                permiteSaque = conta.Sacar(valor);
+            }
         }
 
         private static void Depositar()
@@ -94,13 +107,16 @@ namespace GestaoBancaria
             Valor += valor;
         }
 
-        public void Sacar(double valorSaque)
+        public bool Sacar(double valorSaque)
         {
             var saquePermitido = Valor - valorSaque >= 0;
             if (saquePermitido)
             {
                 Valor -= valorSaque;
+                return true;
             }
+
+            return false;
         }
 
         public double ConsultarSaldo()
